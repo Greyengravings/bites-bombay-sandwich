@@ -2,23 +2,7 @@ import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
 Menu as MenuIcon, X,ChevronDown,
-                      Home,
-                      Tag,
-                      Info,
-                      MessageSquare,
-                      Phone,
-                      Moon,
-                      MapPin,
-                      Check,
-                      ClipboardList,
-                      BookOpen,
-                      Minus,
-                      Plus,
-                      Search,
-                      Star,
-                      Sparkles,
-                      ChevronUp,
-                      Heart,
+Home,Tag,Info,MessageSquare,Phone,Moon,MapPin,Check,ClipboardList,BookOpen,Minus,Plus,Search,Star,Sparkles,ChevronUp,Heart,Clock,Navigation
 } from 'lucide-react';
 import { categories, products, offers } from './data/menu';
 
@@ -26,24 +10,40 @@ import { categories, products, offers } from './data/menu';
 const outlets = [
 {
 id: 1,
-name: "Bombay Sandwich - Vesu",
-address: "D-202, Canal Road, Vesu, Surat, Gujarat 395007",
-lat: 21.1415,
-lng: 72.7758
+name: "Center Point",
+branch: "Main Branch",
+address: "SB - 1/2/33/34, Center Point, R.C. Dutt Road, Alkapuri, Vadodara, Gujarat",
+time: "10:00 AM - 11:00 PM",
+lat: 22.3106,
+lng: 73.1678,
+mapUrl: "https://maps.app.goo.gl/YQb6LygvuYmvBJPv7"
 },
 {
 id: 2,
-name: "Bombay Sandwich - Adajan",
-address: "G-15, Prime Shoppers, Adajan, Surat, Gujarat 395009",
-lat: 21.1925,
-lng: 72.7997
+name: "Devraj Avenue",
+address: "GF-07, Devraj Avenue, Near Ward No. 11, Opp. Uro Care Hospital, New Court Road, Vadodara - 390021",
+time: "10:00 AM - 11:00 PM",
+lat: 22.3216,
+lng: 73.1800,
+mapUrl: "https://www.google.com/maps/search/?api=1&query=Devraj+Avenue+Vadodara+Opp+Uro+Care+Hospital+New+Court+Road"
 },
 {
 id: 3,
-name: "Bombay Sandwich - Varachha",
-address: "L-102, Apple Square, Varachha, Surat, Gujarat 395006",
-lat: 21.2120,
-lng: 72.8633
+name: "Vraj Complex",
+address: "Shop No. GF-7, Vraj Complex, Opp. Ghelani N'pura Village, Vadodara - 390002",
+time: "10:00 AM - 11:00 PM",
+lat: 22.3488,
+lng: 73.1873,
+mapUrl: "https://maps.app.goo.gl/P27CQYm7YHLq86gs7?g_st=ac"
+},
+{
+id: 4,
+name: "Lotus Aura-2",
+address: "Shop No. GF/21, Lotus Aura-2, Opp. Lilleria Party Plot, Sama-Savli Main Road, Vadodara - 390008",
+time: "10:00 AM - 11:00 PM",
+lat: 22.3421,
+lng: 73.2085,
+mapUrl: "https://maps.app.goo.gl/ZGLc5SEgh9dm7cvu7"
 }
 ];
 
@@ -60,23 +60,22 @@ return R * c;
 };
 
 const categoryImages = {
-all: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80",
-sandwich: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=400&q=80",
-jain: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80",
-grill: "https://images.unsplash.com/photo-1539252554452-da6aec9d11f4?auto=format&fit=crop&w=400&q=80",
-'special-grill': "https://images.unsplash.com/photo-1481061742414-aebb192e9dc7?auto=format&fit=crop&w=400&q=80",
-'jumbo-grill': "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80",
-pizza: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=400&q=80",
-burger: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400&q=80",
-paratha: "https://images.unsplash.com/photo-1626776876729-bab4369a5a54?auto=format&fit=crop&w=400&q=80",
-khulcha: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=400&q=80",
-frankie: "https://images.unsplash.com/photo-1589135398309-1144c5b16e15?auto=format&fit=crop&w=400&q=80",
-'hot-dog': "https://images.unsplash.com/photo-1541214113241-21578d2d9b62?auto=format&fit=crop&w=400&q=80",
-'french-fries': "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=400&q=80",
-'garlic-bread': "https://images.unsplash.com/photo-1573140247632-f8fd74997d5c?auto=format&fit=crop&w=400&q=80",
-juices: "https://images.unsplash.com/photo-1600271886342-ad92c39b95a9?auto=format&fit=crop&w=400&q=80",
-beverages: "https://images.unsplash.com/photo-1499638673689-79a0b5115d87?auto=format&fit=crop&w=400&q=80",
-extras: "https://images.unsplash.com/photo-1585238342024-78d387f4a707?auto=format&fit=crop&w=400&q=80",
+sandwich: `${process.env.PUBLIC_URL}/sandwich.webp`,
+jain: `${process.env.PUBLIC_URL}/jain_sandwich.webp`,
+grill: `${process.env.PUBLIC_URL}/grill_sandwich.webp`,
+'special-grill': `${process.env.PUBLIC_URL}/special_grill.webp`,
+'jumbo-grill': `${process.env.PUBLIC_URL}/3_LAYERS_JUMBO_GRILL_SANDWICH.webp`,
+pizza: `${process.env.PUBLIC_URL}/pizza.webp`,
+burger: `${process.env.PUBLIC_URL}/burger.webp`,
+paratha: `${process.env.PUBLIC_URL}/stuff_bun_paratha.webp`,
+khulcha: `${process.env.PUBLIC_URL}/stuff_grill_kulcha.webp`,
+frankie: `${process.env.PUBLIC_URL}/frankie.webp`,
+'hot-dog': `${process.env.PUBLIC_URL}/hot_dog.webp`,
+'french-fries': `${process.env.PUBLIC_URL}/french_fries.webp`,
+'garlic-bread': `${process.env.PUBLIC_URL}/garlic_bread.webp`,
+juice: `${process.env.PUBLIC_URL}/juice.webp`,
+beverages: `${process.env.PUBLIC_URL}/beverages.webp`,
+extras: `${process.env.PUBLIC_URL}/extras.webp`,
 };
 
 const filterChips = [
@@ -123,25 +122,7 @@ const handleScroll = () => setScrolled(window.scrollY > 150);
 window.addEventListener('scroll', handleScroll);
 return () => window.removeEventListener('scroll', handleScroll);
 }, []);
-// Auto-slide and Sync logic
-useEffect(() => {
-  const timer = setInterval(() => {
-    const nextIndex = (activeOffer + 1) % offers.length;
 
-    if (offerRef.current) {
-      const container = offerRef.current;
-      const cardWidth = container.offsetWidth;
-
-      container.scrollTo({
-        left: nextIndex * cardWidth,
-        behavior: 'smooth'
-      });
-      // Note: setActiveOffer is called by the onScroll handler below
-    }
-  }, 4000);
-
-  return () => clearInterval(timer);
-}, [activeOffer]); // Recalculate when activeOffer changes
 // Track Sandwich mode toggle to pop standard sheet layout
 useEffect(() => {
   if (sandwichOnly) {
@@ -468,15 +449,40 @@ isSelected
 >
 <div className="flex items-start justify-between mb-3">
 <div className="flex-1 pr-4">
-<h3 className="font-bold text-slate-800 text-lg mb-1">{outlet.name}</h3>
-<p className="text-xs text-slate-400 font-medium leading-relaxed">
+<div className="flex items-center gap-2 mb-1">
+<h3 className="font-bold text-slate-800 text-lg">{outlet.name}</h3>
+{outlet.branch && (
+<span className="bg-orange-500 text-white text-[8px] font-black px-1.5 py-0.5 rounded-full uppercase tracking-tighter shadow-sm">
+{outlet.branch}
+</span>
+)}
+</div>
+<p className="text-xs text-slate-400 font-medium leading-relaxed mb-2">
 {outlet.address}
 </p>
+<div className="flex items-center gap-3">
+<div className="flex items-center gap-1 text-[10px] text-slate-500 font-bold">
+<Clock size={12} className="text-primary" />
+{outlet.time}
+</div>
+{outlet.mapUrl && (
+<a
+href={outlet.mapUrl}
+target="_blank"
+rel="noopener noreferrer"
+className="flex items-center gap-1 text-[10px] text-primary font-black uppercase tracking-wider hover:underline"
+onClick={(e) => e.stopPropagation()}
+>
+<Navigation size={12} />
+Map Link
+</a>
+)}
+</div>
 </div>
 {isNearest && (
-<div className="bg-emerald-500 text-white text-[9px] font-black px-2 py-1 rounded-full uppercase tracking-wider shrink-0 flex items-center gap-1 shadow-sm shadow-emerald-200">
+<div className="bg-emerald-500 text-white text-[9px] font-black px-2 py-1 rounded-full uppercase tracking-wider shrink-0 flex items-center gap-1 shadow-sm shadow-emerald-200 h-fit">
 <MapPin size={8} fill="white" />
-Nearest Outlet
+Nearest
 </div>
 )}
 </div>
@@ -494,7 +500,7 @@ Nearest Outlet
 {isSelected ? (
 <div className="flex items-center gap-1.5 text-emerald-600 font-black text-xs uppercase tracking-widest shrink-0">
 <Check size={18} strokeWidth={4} />
-Currently Selected
+Selected
 </div>
 ) : (
 <button
@@ -695,13 +701,6 @@ className="w-4 h-4 bg-white rounded-full shadow-md absolute left-1"
 <section className="mb-10 -mx-4 sm:-mx-5 overflow-hidden">
   <div
     ref={offerRef}
-    onScroll={(e) => {
-      // 1. Logic to sync dots with manual user scroll
-      const scrollLeft = e.currentTarget.scrollLeft;
-      const width = e.currentTarget.offsetWidth;
-      const index = Math.round(scrollLeft / width);
-      if (index !== activeOffer) setActiveOffer(index);
-    }}
     className="flex gap-4 overflow-x-auto no-scrollbar px-4 sm:px-5 py-2 scroll-smooth snap-x snap-mandatory"
   >
     {offers.map((offer) => (
@@ -716,30 +715,6 @@ className="w-4 h-4 bg-white rounded-full shadow-md absolute left-1"
           <p className="text-white/90 text-sm font-bold">{offer.subtitle}</p>
         </div>
       </motion.div>
-    ))}
-  </div>
-
-  {/* Dots Indicator */}
-  <div className="flex justify-center gap-2 mt-5">
-    {offers.map((_, i) => (
-      <motion.div
-        key={i}
-        animate={{
-          width: i === activeOffer ? 24 : 8,
-          opacity: i === activeOffer ? 1 : 0.4
-        }}
-        onClick={() => {
-          // Allow clicking dots to scroll to the card
-          const container = offerRef.current;
-          if (container) {
-            const width = container.offsetWidth;
-            container.scrollTo({ left: width * i, behavior: 'smooth' });
-          }
-        }}
-        className={`h-2 rounded-full cursor-pointer transition-all duration-300 ${
-          i === activeOffer ? 'bg-primary' : 'bg-slate-300'
-        }`}
-      />
     ))}
   </div>
 </section>
@@ -763,7 +738,7 @@ activeCategory === cat.id
 }`}
 >
 <img
-src={categoryImages[cat.id] || categoryImages.all}
+src={categoryImages[cat.id] || categoryImages.extras}
 alt={cat.name}
 className="absolute inset-0 w-full h-full object-cover"
 loading="lazy"
@@ -836,13 +811,10 @@ className="scroll-mt-36"
         <motion.img
           whileHover={{ scale: 1.1 }}
           transition={{ duration: 0.6 }}
-          src={`https://images.unsplash.com/photo-${1500000000000 + product.id}?auto=format&fit=crop&w=400&q=80`}
+          src={categoryImages[product.category] || categoryImages.extras}
           alt={product.name}
           loading="lazy"
           className="w-full h-full object-cover"
-          onError={(e) => {
-            e.target.src = "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=400&q=80";
-          }}
         />
 
         {/* PILL-PERFECT FLOATING CORNER RATING CHIP */}
@@ -871,6 +843,9 @@ className="scroll-mt-36"
         <h3 className="font-semibold text-[16px] text-slate-800 line-clamp-2 leading-tight mb-1 group-hover:text-primary transition-colors">
           {product.name}
         </h3>
+        <h4 className="text-[10px] text-slate-400 uppercase tracking-widest font-black mb-1">
+          {product.category.replace('-', ' ')}
+        </h4>
         <p className="text-[12px] text-slate-400 line-clamp-2 leading-tight mb-3 font-medium">
           {product.description}
         </p>
