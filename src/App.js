@@ -1,10 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-Search, Star, Plus, Minus, Home, LayoutGrid, Tag, Info, Heart,
-Menu as MenuIcon, X, ChevronDown, MapPin, Check, ShoppingBag,
-History, User, LogOut, Moon, Settings, MessageSquare, Phone,
-ChevronUp, ClipboardList, BookOpen, Layers, Sparkles
+Menu as MenuIcon, X
 } from 'lucide-react';
 import { categories, products, offers } from './data/menu';
 
