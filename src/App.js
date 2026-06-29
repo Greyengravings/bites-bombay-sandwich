@@ -325,13 +325,20 @@ scrolled ? 'bg-white/90 backdrop-blur-xl py-3 shadow-sm border-b border-slate-10
 }`}>
 <div className="w-full px-4 sm:px-5 flex items-center justify-between gap-4">
 <div className="flex-shrink-0">
-<motion.img
-initial={false}
-animate={{ height: scrolled ? 42 : 50 }}
-src="/logo.webp"
-alt="Bites Logo"
-className="w-auto object-contain"
-/>
+<div className="flex-shrink-0">
+  <motion.img
+    src={`${process.env.PUBLIC_URL}/logo.webp`}
+    alt="Bites Bombay Sandwich"
+    initial={false}
+    animate={{
+      height: scrolled ? 42 : 50,
+    }}
+    transition={{
+      duration: 0.3,
+    }}
+    className="w-auto object-contain"
+  />
+</div>
 </div>
 
 <button
@@ -379,9 +386,9 @@ className="fixed right-0 top-0 bottom-0 w-[280px] bg-white z-[110] shadow-2xl fl
 <div className="p-6 border-b border-slate-50 flex items-center justify-between bg-primary/0">
   {/* Replaced text with the logo image */}
   <img
-    src="/logo.webp"
+    src={`${process.env.PUBLIC_URL}/logo.webp`}
     alt="Bites Logo"
-    className="h-30 w-auto object-contain"
+    className="h-20 w-auto object-contain"
   />
 
   <button onClick={() => setIsDrawerOpen(false)} className="p-2 -mr-2 text-slate-400">
