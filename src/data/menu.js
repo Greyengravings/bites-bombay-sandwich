@@ -8,6 +8,7 @@ export const categories = [
   { id: 'pizza', name: 'PIZZA', icon: '🍕' },
   { id: 'khulcha', name: 'STUFF GRILLED KHULCHA', icon: '🍞' },
   { id: 'burger', name: 'BURGERS', icon: '🍔' },
+  { id: 'garlic-bread', name: 'GARLIC BREAD', icon: '🧄' },
   { id: 'french-fries', name: 'FRENCH FRIES', icon: '🍟' },
   { id: 'hot-dog', name: 'HOT DOG', icon: '🌭' },
   { id: 'frankie', name: 'FRANKIE', icon: '🌯' },
@@ -238,6 +239,13 @@ export const products = [
   { id: 805, name: 'Cheese Creamy Burger', category: 'burger', price: 110, rating: 4.4, description: '', popular: false, veg: true },
   { id: 806, name: 'Cheese Paneer Tandoori Burger', category: 'burger', price: 130, rating: 4.4, description: '', popular: false, veg: true },
   { id: 807, name: 'Bites Special Burger', category: 'burger', price: 150, rating: 4.4, description: '', popular: false, veg: true },
+
+  // GARLIC BREAD
+  { id: 1400, name: 'Cheese Garlic Bread', category: 'garlic-bread', price: 130, rating: 5.0, description: '', popular: true, veg: true },
+  { id: 1401, name: 'Veg Thousand Garlic Bread', category: 'garlic-bread', price: 150, rating: 4.4, description: '', popular: false, veg: true },
+  { id: 1402, name: 'Paneer Tandoori Cheese Garlic Bread', category: 'garlic-bread', price: 170, rating: 4.4, description: '', popular: false, veg: true },
+  { id: 1403, name: 'Cheese Corn Garlic Bread', category: 'garlic-bread', price: 150, rating: 4.4, description: '', popular: false, veg: true },
+  { id: 1404, name: 'Cheese Chilli Garlic Bread', category: 'garlic-bread', price: 150, rating: 4.4, description: '', popular: false, veg: true },
 
   // FRENCH FRIES
   { id: 900, name: 'French Fries', category: 'french-fries', price: 130, rating: 5.0, description: '', popular: true, veg: true },
