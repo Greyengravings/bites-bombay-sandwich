@@ -17,6 +17,8 @@ Menu as MenuIcon, X,ChevronDown,
                       Search,
                       Star,
                       Sparkles,
+                      ChevronUp,
+                      Heart,
 } from 'lucide-react';
 import { categories, products, offers } from './data/menu';
 
